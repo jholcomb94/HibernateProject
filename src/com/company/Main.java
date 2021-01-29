@@ -1,4 +1,8 @@
 package com.company;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import java.util.Random;
 import java.sql.Time;
 
@@ -14,7 +18,7 @@ public class Main {
         String name,email, phoneNumber, gender,destination;
         int age;
         Date date;
-        LocalTime lt;
+        Time lt;
 		SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 		date = new Date(System.currentTimeMillis());
         Scanner kb = new Scanner(System.in);
@@ -35,8 +39,8 @@ public class Main {
 	    while(true) {
 	    	try {
 				System.out.println("finally, what time would you like to depart? (enter the time in the format hh:mm:ss)");
-				String time = kb.nextLine();
-				lt = LocalTime.parse(time);
+				String t = kb.nextLine();
+				lt = Time.valueOf(t);
 				break;
 			}
 	    	catch(DateTimeParseException e)
@@ -46,44 +50,29 @@ public class Main {
 			}
 		}
 	    System.out.println("name: " + name + " email: " + email + " phone: " + phoneNumber + " age: " + age + " gender: " + gender + " destination: " + destination + " departure time: " + lt.toString());
-	    
-
-
+	    BoardingPass bp = new BoardingPass(name,email,phoneNumber,gender,destination,age,date,lt);
+	    addToDB(bp);
 
     }
 
-public Time getArrivalTime(){
-    final Random random = new Random();
-    final int millisInDay = 24*60*60*1000;
-    Time time = new Time((long)random.nextInt(millisInDay));
-    return time;
-}
-    public double newPrice(int age, double price, String gender){
-        double discounted;
-        if(age<= 12){
-            if(gender.equals("female")){
-            discounted = price-(price*.75);
-            return discounted;
-            }
-            else{
-                discounted= price - (price*.5);
-                return discounted;
 
-            }
+    public static void addToDB(BoardingPass bp)
+    {
+            SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Main.class).buildSessionFactory();
+            Session session = factory.getCurrentSession();
+            try{//Name, Email, Phone Number, Gender, Age Date, Destination, and Departure Time
 
-        }
-        else if(age >=60){
-            if(gender.equals("female")) {
-                discounted = price - (price * .85);
-                return discounted;
-            }
-                else{
-                    discounted= price-(price*.6);
-                    return discounted;
-                }
-            }
-        else return price;
+                session.beginTransaction();
+                System.out.println("Beginning...");
+                session.save(bp);
+                System.out.println("Now saving new boarding pass");
+                session.getTransaction().commit();
+                System.out.println("Completed");
 
-        }
+            }finally{
+                factory.close();
+            }
+    }
+
 
 }

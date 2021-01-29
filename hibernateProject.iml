@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -10,20 +11,40 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://C:/hibernate/MySQL+and+Hibernate+JARS/JARS/hibernate JAR" />
+          <root url="file://C:/Hibernate/MySQL+and+Hibernate+JARS/JARS/hibernate JAR" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://C:/hibernate/MySQL+and+Hibernate+JARS/JARS/hibernate JAR" recursive="false" />
+        <jarDirectory url="file://C:/Hibernate/MySQL+and+Hibernate+JARS/JARS/hibernate JAR" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://C:/hibernate/MySQL+and+Hibernate+JARS/JARS/MySQL connector  Jar/mysql-connector-java-8.0.19.jar!/" />
+          <root url="jar://C:/Hibernate/MySQL+and+Hibernate+JARS/JARS/MySQL connector  Jar/mysql-connector-java-8.0.19.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://C:/Hibernate/hibernate JAR" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://C:/Hibernate/hibernate JAR" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://C:/Hibernate/MySQL connector  Jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://C:/Hibernate/MySQL connector  Jar" recursive="false" />
       </library>
     </orderEntry>
   </component>
