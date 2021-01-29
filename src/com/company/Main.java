@@ -3,6 +3,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.Random;
 import java.sql.Time;
 
@@ -12,6 +17,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.Scanner;
 
+import java.util.*;
 public class Main {
     //Hibernate project by  Justin Holcomb and Roneil Boyce
     public static void main(String[] args) {
@@ -52,6 +58,23 @@ public class Main {
 	    System.out.println("name: " + name + " email: " + email + " phone: " + phoneNumber + " age: " + age + " gender: " + gender + " destination: " + destination + " departure time: " + lt.toString());
 	    BoardingPass bp = new BoardingPass(name,email,phoneNumber,gender,destination,age,date,lt);
 	    addToDB(bp);
+
+        try {
+            File myObj = new File("practice.txt");
+            if (myObj.createNewFile()) {
+                System.out.println("File created: " + myObj.getName());
+                FileWriter myWriter = new FileWriter(myObj);
+                myWriter.write("name: " + name + " email: " + email + " phone: " + phoneNumber + " age: " + age +
+                        " gender: " + gender + " destination: " + destination + " departure time: " + lt.toString() +" discount: " + discount
+                        + " arrival time " + getArrivalTime());
+                System.out.println("Successfully wrote to the file.");
+                myWriter.close();
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred.");
+        }
 
     }
 
