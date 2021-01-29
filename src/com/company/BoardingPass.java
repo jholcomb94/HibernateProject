@@ -1,16 +1,37 @@
 package com.company;
 
+import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
 import java.util.Random;
-
+@Entity
+@Table(name = "boardingpass")
 public class BoardingPass {
-    String name,email, phoneNumber, gender,destination;
-    int age;
-    double price;
-    int id;
-    Date date;
-    Time departure,arrival;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private int id;
+    @Column(name = "NAME")
+    private String name;
+    @Column(name = "EMAIL")
+    private String email;
+    @Column(name = "PHONENUMBER")
+    private String phoneNumber;
+    @Column(name = "GENDER")
+    private String gender;
+    @Column(name = "DESTINATION")
+    private String destination;
+    @Column(name = "AGE")
+    private int age;
+    @Column(name = "PRICE")
+    private double price;
+    @Column(name = "DATE")
+    private Date date;
+    @Column(name = "DEPARTURE")
+    private Time departure;
+    @Column(name = "ARRIVAL")
+    private Time arrival;
+
 
     public BoardingPass(String name, String email, String phoneNumber, String gender, String destination, int age, Date date, Time departure) {
         this.name = name;
