@@ -29,6 +29,8 @@ public class BoardingPass {
     private Date date;
     @Column(name = "departure")
     private Time departure;
+    @Column(name = "arrival")
+    private Time arrival;
 
     public int getId() {
         return id;
@@ -118,12 +120,7 @@ public class BoardingPass {
         this.arrival = arrival;
     }
 
-    @Column(name = "arrival")
-<<<<<<< HEAD
-    @Column(name = "arrival")
-=======
->>>>>>> RonCopy
-    private Time arrival;
+
 
 
     public BoardingPass(String name, String email, String phoneNumber, String gender, String destination, int age, Date date, Time departure) {
