@@ -119,7 +119,10 @@ public class BoardingPass {
     }
 
     @Column(name = "arrival")
+<<<<<<< HEAD
     @Column(name = "arrival")
+=======
+>>>>>>> RonCopy
     private Time arrival;
 
 
