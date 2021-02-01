@@ -1,1 +1,1 @@
-name: jo email: robo@gmail.com phone: 912-726-2040 age: 12 gender: female destination: tokyo departure time: 12:20:20 discount: 20.0 arrival time 18:59:26
+name: jo email: robo@gmail.com phone: 912-726-2040 age: 12 gender: female destination: tokyo departure time: 12:20:20 discount: 20.0 arrival time 18:59:26date Mon Feb 01 10:25:45 PST 2021name: test email: test phone: 3216548749 age: 37 gender: F destination: test departure time: 11:11:11 price: 100.0 arrival time 18:53:25
