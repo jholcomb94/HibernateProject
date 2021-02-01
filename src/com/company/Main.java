@@ -58,7 +58,7 @@ public class Main {
 
     public static void addToDB(BoardingPass bp)
     {
-            SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Main.class).buildSessionFactory();
+            SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(BoardingPass.class).buildSessionFactory();
             Session session = factory.getCurrentSession();
             try{//Name, Email, Phone Number, Gender, Age Date, Destination, and Departure Time
 

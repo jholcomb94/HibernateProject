@@ -15,7 +15,7 @@ public class BoardingPass {
     private String name;
     @Column(name = "EMAIL")
     private String email;
-    @Column(name = "PHONENUMBER")
+    @Column(name = "PHONE NUMBER")
     private String phoneNumber;
     @Column(name = "GENDER")
     private String gender;
