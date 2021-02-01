@@ -9,27 +9,116 @@ import java.util.Random;
 public class BoardingPass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private int id;
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String name;
-    @Column(name = "EMAIL")
+    @Column(name = "email")
     private String email;
-    @Column(name = "PHONENUMBER")
+    @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name = "GENDER")
+    @Column(name = "gender")
     private String gender;
-    @Column(name = "DESTINATION")
+    @Column(name = "destination")
     private String destination;
-    @Column(name = "AGE")
+    @Column(name = "age")
     private int age;
-    @Column(name = "PRICE")
+    @Column(name = "price")
     private double price;
-    @Column(name = "DATE")
+    @Column(name = "date")
     private Date date;
-    @Column(name = "DEPARTURE")
+    @Column(name = "departure")
     private Time departure;
-    @Column(name = "ARRIVAL")
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Time getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(Time departure) {
+        this.departure = departure;
+    }
+
+    public Time getArrival() {
+        return arrival;
+    }
+
+    public void setArrival(Time arrival) {
+        this.arrival = arrival;
+    }
+
+    @Column(name = "arrival")
     private Time arrival;
 
 

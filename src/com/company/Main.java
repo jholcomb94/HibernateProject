@@ -5,6 +5,11 @@ import org.hibernate.cfg.Configuration;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -57,31 +62,34 @@ public class Main {
 		}
 	    System.out.println("name: " + name + " email: " + email + " phone: " + phoneNumber + " age: " + age + " gender: " + gender + " destination: " + destination + " departure time: " + lt.toString());
 	    BoardingPass bp = new BoardingPass(name,email,phoneNumber,gender,destination,age,date,lt);
+
 	    addToDB(bp);
 
+
         try {
-            File myObj = new File("practice.txt");
-            if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
-                FileWriter myWriter = new FileWriter(myObj);
-                myWriter.write("name: " + name + " email: " + email + " phone: " + phoneNumber + " age: " + age +
-                        " gender: " + gender + " destination: " + destination + " departure time: " + lt.toString() +" discount: " + discount
-                        + " arrival time " + getArrivalTime());
-                System.out.println("Successfully wrote to the file.");
-                myWriter.close();
-            } else {
-                System.out.println("File already exists.");
-            }
+        	String jo ="date " + bp.getDate().toString() + "name: " + bp.getName() + " email: " + bp.getEmail() + " phone: " + bp.getPhoneNumber() + " age: " + bp.getAge() +
+					" gender: " + bp.getGender() + " destination: " + bp.getDestination() + " departure time: " + bp.getDeparture().toString() +" price: " +
+					bp.getPrice() + " arrival time " + bp.getArrival().toString() +"\n";
+           // File myObj = new File("practice.txt");
+			//Files.writeString()
+			Files.write(Paths.get("practice.txt"), jo.getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+
+				//Files.createFile(Paths.get("test2.txt"));
+                //System.out.println("File already exists.");
+
+
         } catch (Exception e) {
-            System.out.println("An error occurred.");
+            System.out.println(e.getMessage());
         }
 
-    }
+	}
+
+
 
 
     public static void addToDB(BoardingPass bp)
     {
-            SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Main.class).buildSessionFactory();
+            SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(BoardingPass.class).buildSessionFactory();
             Session session = factory.getCurrentSession();
             try{//Name, Email, Phone Number, Gender, Age Date, Destination, and Departure Time
 
