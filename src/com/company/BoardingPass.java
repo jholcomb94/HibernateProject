@@ -9,31 +9,33 @@ import java.util.Random;
 public class BoardingPass {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private int id;
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String name;
-    @Column(name = "EMAIL")
+    @Column(name = "email")
     private String email;
-    @Column(name = "PHONE NUMBER")
+    @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name = "GENDER")
+    @Column(name = "gender")
     private String gender;
-    @Column(name = "DESTINATION")
+    @Column(name = "destination")
     private String destination;
-    @Column(name = "AGE")
+    @Column(name = "age")
     private int age;
-    @Column(name = "PRICE")
+    @Column(name = "price")
     private double price;
-    @Column(name = "DATE")
+    @Column(name = "date")
     private Date date;
-    @Column(name = "DEPARTURE")
+    @Column(name = "departure")
     private Time departure;
-    @Column(name = "ARRIVAL")
+    @Column(name = "arrival")
     private Time arrival;
 
 
     public BoardingPass(String name, String email, String phoneNumber, String gender, String destination, int age, Date date, Time departure) {
+        Random rand = new Random();
+        this.id = Math.abs(rand.nextInt()% 100000000);
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
